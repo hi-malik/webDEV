@@ -1,0 +1,40 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Himanshu Malik">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="main.js"></script>
+	</head>
+	<body>
+		<header>
+		<h1>Issues Raised</h1>
+		<a href="/logout">Log out</a>
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>
+			<form methord ="post" action="/issue/add" enctype="multipart/form-data">
+				<p>
+					<label for="Title">Title</label><br />
+					<input type="text" name="Title" placeholder="Issue title" value="" autofocus required />
+				</p>
+				<p>
+					<label for="Heading">Headline</label><br />
+					<input type="text" name="Heading" placeholder="heading" value="" autofocus required />
+				</p>
+				<p>
+					<label for="photo">Photo</label><br />
+					<input type="file" name="photo" accept="image/*" />
+				</p>
+				<p><input type="submit" value="Add Issue"></p>
+			</form>
+		</main>
+	</body>
+</html>

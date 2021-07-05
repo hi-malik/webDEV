@@ -1,0 +1,41 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Himanshu Malik">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="main.js"></script>
+	</head>
+	<body>
+		<header>
+		<h1>News Page</h1>
+		<a href="/logout">Log out</a>
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+		<main>
+      <table>
+				<tr><th>Photo</th><th>Title</th><th>Headline</th><th>Last Added</th><th>Actions</th></tr>
+        {{#each records}}
+        <tr>
+          <td><img src= "images/{{this.photo}}"></td>
+          <td>{{this.title}}</td>
+          <td>{{this.headline}}</td>
+          <td>{{this.lastAdded}}</td>
+					<td><a href = "/community/details/{{this.id}}">details</a></td>
+        </tr>
+      {{/each}}
+      </table>
+      
+		<p>This is a secure page. Users need to have a valid account and be logged in to see it.</p>
+		<p><a href="/">Home page</a></p>
+		</main>
+		<a class = "add" href="/community/add">Add Contact</a>
+	</body>
+</html>

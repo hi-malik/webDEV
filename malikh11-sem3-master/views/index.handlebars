@@ -1,0 +1,52 @@
+
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Home Page</title>
+		<meta name="description" content="form to add new books">
+		<meta name="author" content="Himanshu Malik">
+        <link rel="icon" type="image/png" href="/public/avatar/avatar.png"/>
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" />
+		<script type="module" src="{{host}}/main.js"></script>
+	</head>
+	<body>
+		<header>
+			<h1>Home</h1>
+			{{#if authorised}}
+				<a href="/logout">Log out</a>
+			{{else}}
+				<a href="/login">Log in</a>
+			{{/if}}
+		</header>
+		{{#if msg}}
+ 			<aside>
+				<p class="msg">{{msg}}</p>
+			</aside>
+		{{/if}}
+	<main>
+		<p>A local council community, raise all the issues over here.</p>
+		{{#if authorised}}
+			<p><a href="/secure">secure page</a></p>
+		{{/if}}
+	</main>
+    <main>
+		<table>
+        <tr><th>Photo</th><th>Title</th><th>Headline</th><th>Last Added</th>
+        {{#each records}}
+        <tr>
+          <td><img src= "images/{{this.photo}}"></td>
+          <td>{{this.title}}</td>
+          <td>{{this.headline}}</td>
+          <td>{{this.lastAdded}}</td>
+        </tr>
+      {{/each}}
+      </table>
+		<p>This is the home page. Users can see it without logging in.</p>
+		{{#if authorised}}
+			<p><a href="/secure">secure page</a></p>
+		{{/if}}
+	</main>
+	</body>
+</html>

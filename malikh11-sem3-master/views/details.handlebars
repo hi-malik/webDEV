@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<title>Details - {{communityinfo.title}} {{communityinfo.headline}} </title> 
+		<meta name="description" content="form to add new news details"> 
+		<meta name="author" content="Himanshu Malik">
+		<link href="{{host}}/style.css" type="text/css" rel="stylesheet" /> 
+		<script type="module" src="{{host}}/main.js"></script> 
+	</head>
+	<body>
+		<header>
+			<h1>Details - {{communityinfo.title}} {{communityinfo.headline}}</h1>
+			<a href ="/logout">Logout</a>
+		</header>
+		{{#if msg}}
+		<aside>
+			<p class="msg">{{msg}}</p>
+		</aside>
+		{{/if}}
+		<main>
+			<figure>
+			<img src="{{host}}/avatar/{{communityinfo.avatar}}" />
+				<figcaption>{{communityinfo.title}} {{communityinfo.headline}} </figcaption>
+			</figure>
+		</main>
+		<aside class="fixed top left">
+			<button class="back">Back</button>
+		</aside>
+	</body>
+</html>
